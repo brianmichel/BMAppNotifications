@@ -121,13 +121,6 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-  CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-  shapeLayer.path = [UIBezierPath bezierPathWithRoundedRect:cell.frame byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(8.0, 8.0)].CGPath;
-  cell.layer.masksToBounds = YES;
-  cell.layer.mask = shapeLayer;
-}
-
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
   if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:willActivateNotification:)]) {
     BMAppNotification *note = self.deliveredNotifications[indexPath.row];
