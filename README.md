@@ -18,6 +18,8 @@ Here's a video demo of what it can do [Awesome Demo](http://f.cl.ly/items/2i1t2w
 Known Issues
 -----------
 
+Please check the [Issues](https://github.com/brianmichel/BMAppNotifications/issues) for the most up to date list of issues, feature enhancements, questions,etc.
+
 1. The change style functionality only works reliably if you register a class **BEFORE** sending any notifications. The reason is there doesn't seem to be a way to clear the reuse queue of the table view so it's pulling out potentially the wrong class.
 
 2. ~~There is a strange issue where you'll scroll the notifications off scren, then back on, and they will seem to be missing, but they are still there, and you can dismiss them. Very strange.~~
