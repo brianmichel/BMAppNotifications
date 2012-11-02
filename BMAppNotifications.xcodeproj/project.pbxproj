@@ -19,17 +19,23 @@
 		72F55A3D1644183A00A13829 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F55A3C1644183A00A13829 /* ViewController.m */; };
 		72F55A401644183A00A13829 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A3E1644183A00A13829 /* ViewController_iPhone.xib */; };
 		72F55A431644183A00A13829 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A411644183A00A13829 /* ViewController_iPad.xib */; };
+		72F55A4B164419CE00A13829 /* BMAppNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F55A4A164419CE00A13829 /* BMAppNotificationCenter.m */; };
+		72F55A4D1644300D00A13829 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F55A4C1644300D00A13829 /* QuartzCore.framework */; };
+		72F55A511644330300A13829 /* blackCat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A501644330300A13829 /* blackCat.png */; };
+		72F55A541644353800A13829 /* ImageBubbleUntailed-Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A521644353800A13829 /* ImageBubbleUntailed-Blue.png */; };
+		72F55A551644353800A13829 /* ImageBubbleUntailed-Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A531644353800A13829 /* ImageBubbleUntailed-Blue@2x.png */; };
+		72F55A811644475A00A13829 /* SweetDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F55A801644475A00A13829 /* SweetDisplayCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		72F55A1F1644183A00A13829 /* MLNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F55A1F1644183A00A13829 /* BMAppNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMAppNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F55A231644183A00A13829 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		72F55A251644183A00A13829 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		72F55A271644183A00A13829 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		72F55A2B1644183A00A13829 /* MLNotifications-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MLNotifications-Info.plist"; sourceTree = "<group>"; };
+		72F55A2B1644183A00A13829 /* BMAppNotifications-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BMAppNotifications-Info.plist"; sourceTree = "<group>"; };
 		72F55A2D1644183A00A13829 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		72F55A2F1644183A00A13829 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		72F55A311644183A00A13829 /* MLNotifications-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLNotifications-Prefix.pch"; sourceTree = "<group>"; };
+		72F55A311644183A00A13829 /* BMAppNotifications-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BMAppNotifications-Prefix.pch"; sourceTree = "<group>"; };
 		72F55A321644183A00A13829 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72F55A331644183A00A13829 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		72F55A351644183A00A13829 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -39,6 +45,14 @@
 		72F55A3C1644183A00A13829 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		72F55A3F1644183A00A13829 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		72F55A421644183A00A13829 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		72F55A49164419CE00A13829 /* BMAppNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMAppNotificationCenter.h; path = Classes/BMAppNotificationCenter.h; sourceTree = "<group>"; };
+		72F55A4A164419CE00A13829 /* BMAppNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMAppNotificationCenter.m; path = Classes/BMAppNotificationCenter.m; sourceTree = "<group>"; };
+		72F55A4C1644300D00A13829 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		72F55A501644330300A13829 /* blackCat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackCat.png; sourceTree = "<group>"; };
+		72F55A521644353800A13829 /* ImageBubbleUntailed-Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageBubbleUntailed-Blue.png"; sourceTree = "<group>"; };
+		72F55A531644353800A13829 /* ImageBubbleUntailed-Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ImageBubbleUntailed-Blue@2x.png"; sourceTree = "<group>"; };
+		72F55A7F1644475A00A13829 /* SweetDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SweetDisplayCell.h; path = Classes/SweetDisplayCell.h; sourceTree = "<group>"; };
+		72F55A801644475A00A13829 /* SweetDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SweetDisplayCell.m; path = Classes/SweetDisplayCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F55A4D1644300D00A13829 /* QuartzCore.framework in Frameworks */,
 				72F55A241644183A00A13829 /* UIKit.framework in Frameworks */,
 				72F55A261644183A00A13829 /* Foundation.framework in Frameworks */,
 				72F55A281644183A00A13829 /* CoreGraphics.framework in Frameworks */,
@@ -58,7 +73,7 @@
 		72F55A141644183A00A13829 = {
 			isa = PBXGroup;
 			children = (
-				72F55A291644183A00A13829 /* MLNotifications */,
+				72F55A291644183A00A13829 /* BMAppNotifications */,
 				72F55A221644183A00A13829 /* Frameworks */,
 				72F55A201644183A00A13829 /* Products */,
 			);
@@ -67,7 +82,7 @@
 		72F55A201644183A00A13829 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				72F55A1F1644183A00A13829 /* MLNotifications.app */,
+				72F55A1F1644183A00A13829 /* BMAppNotifications.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +90,7 @@
 		72F55A221644183A00A13829 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72F55A4C1644300D00A13829 /* QuartzCore.framework */,
 				72F55A231644183A00A13829 /* UIKit.framework */,
 				72F55A251644183A00A13829 /* Foundation.framework */,
 				72F55A271644183A00A13829 /* CoreGraphics.framework */,
@@ -82,27 +98,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		72F55A291644183A00A13829 /* MLNotifications */ = {
+		72F55A291644183A00A13829 /* BMAppNotifications */ = {
 			isa = PBXGroup;
 			children = (
 				72F55A321644183A00A13829 /* AppDelegate.h */,
 				72F55A331644183A00A13829 /* AppDelegate.m */,
 				72F55A3B1644183A00A13829 /* ViewController.h */,
 				72F55A3C1644183A00A13829 /* ViewController.m */,
-				72F55A3E1644183A00A13829 /* ViewController_iPhone.xib */,
-				72F55A411644183A00A13829 /* ViewController_iPad.xib */,
+				72F55A7F1644475A00A13829 /* SweetDisplayCell.h */,
+				72F55A801644475A00A13829 /* SweetDisplayCell.m */,
+				72F55A9216444D1B00A13829 /* BMAppNotificationCenter */,
+				72F55A4F1644330300A13829 /* Assets */,
 				72F55A2A1644183A00A13829 /* Supporting Files */,
 			);
-			path = MLNotifications;
+			name = BMAppNotifications;
+			path = BMNotifications;
 			sourceTree = "<group>";
 		};
 		72F55A2A1644183A00A13829 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				72F55A2B1644183A00A13829 /* MLNotifications-Info.plist */,
+				72F55A3E1644183A00A13829 /* ViewController_iPhone.xib */,
+				72F55A411644183A00A13829 /* ViewController_iPad.xib */,
+				72F55A2B1644183A00A13829 /* BMAppNotifications-Info.plist */,
 				72F55A2C1644183A00A13829 /* InfoPlist.strings */,
 				72F55A2F1644183A00A13829 /* main.m */,
-				72F55A311644183A00A13829 /* MLNotifications-Prefix.pch */,
+				72F55A311644183A00A13829 /* BMAppNotifications-Prefix.pch */,
 				72F55A351644183A00A13829 /* Default.png */,
 				72F55A371644183A00A13829 /* Default@2x.png */,
 				72F55A391644183A00A13829 /* Default-568h@2x.png */,
@@ -110,12 +131,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		72F55A4F1644330300A13829 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				72F55A521644353800A13829 /* ImageBubbleUntailed-Blue.png */,
+				72F55A531644353800A13829 /* ImageBubbleUntailed-Blue@2x.png */,
+				72F55A501644330300A13829 /* blackCat.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		72F55A9216444D1B00A13829 /* BMAppNotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				72F55A49164419CE00A13829 /* BMAppNotificationCenter.h */,
+				72F55A4A164419CE00A13829 /* BMAppNotificationCenter.m */,
+			);
+			name = BMAppNotificationCenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		72F55A1E1644183A00A13829 /* MLNotifications */ = {
+		72F55A1E1644183A00A13829 /* BMAppNotifications */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72F55A461644183A00A13829 /* Build configuration list for PBXNativeTarget "MLNotifications" */;
+			buildConfigurationList = 72F55A461644183A00A13829 /* Build configuration list for PBXNativeTarget "BMAppNotifications" */;
 			buildPhases = (
 				72F55A1B1644183A00A13829 /* Sources */,
 				72F55A1C1644183A00A13829 /* Frameworks */,
@@ -125,9 +165,9 @@
 			);
 			dependencies = (
 			);
-			name = MLNotifications;
+			name = BMAppNotifications;
 			productName = MLNotifications;
-			productReference = 72F55A1F1644183A00A13829 /* MLNotifications.app */;
+			productReference = 72F55A1F1644183A00A13829 /* BMAppNotifications.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -139,7 +179,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Foureyes;
 			};
-			buildConfigurationList = 72F55A191644183A00A13829 /* Build configuration list for PBXProject "MLNotifications" */;
+			buildConfigurationList = 72F55A191644183A00A13829 /* Build configuration list for PBXProject "BMAppNotifications" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -151,7 +191,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				72F55A1E1644183A00A13829 /* MLNotifications */,
+				72F55A1E1644183A00A13829 /* BMAppNotifications */,
 			);
 		};
 /* End PBXProject section */
@@ -167,6 +207,9 @@
 				72F55A3A1644183A00A13829 /* Default-568h@2x.png in Resources */,
 				72F55A401644183A00A13829 /* ViewController_iPhone.xib in Resources */,
 				72F55A431644183A00A13829 /* ViewController_iPad.xib in Resources */,
+				72F55A511644330300A13829 /* blackCat.png in Resources */,
+				72F55A541644353800A13829 /* ImageBubbleUntailed-Blue.png in Resources */,
+				72F55A551644353800A13829 /* ImageBubbleUntailed-Blue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +223,8 @@
 				72F55A301644183A00A13829 /* main.m in Sources */,
 				72F55A341644183A00A13829 /* AppDelegate.m in Sources */,
 				72F55A3D1644183A00A13829 /* ViewController.m in Sources */,
+				72F55A4B164419CE00A13829 /* BMAppNotificationCenter.m in Sources */,
+				72F55A811644475A00A13829 /* SweetDisplayCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +314,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MLNotifications/MLNotifications-Prefix.pch";
-				INFOPLIST_FILE = "MLNotifications/MLNotifications-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "BMNotifications/BMAppNotifications-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/BMNotifications/BMAppNotifications-Info.plist";
+				PRODUCT_NAME = BMAppNotifications;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -280,9 +325,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MLNotifications/MLNotifications-Prefix.pch";
-				INFOPLIST_FILE = "MLNotifications/MLNotifications-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "BMNotifications/BMAppNotifications-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/BMNotifications/BMAppNotifications-Info.plist";
+				PRODUCT_NAME = BMAppNotifications;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -290,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		72F55A191644183A00A13829 /* Build configuration list for PBXProject "MLNotifications" */ = {
+		72F55A191644183A00A13829 /* Build configuration list for PBXProject "BMAppNotifications" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72F55A441644183A00A13829 /* Debug */,
@@ -299,13 +344,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72F55A461644183A00A13829 /* Build configuration list for PBXNativeTarget "MLNotifications" */ = {
+		72F55A461644183A00A13829 /* Build configuration list for PBXNativeTarget "BMAppNotifications" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72F55A471644183A00A13829 /* Debug */,
 				72F55A481644183A00A13829 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

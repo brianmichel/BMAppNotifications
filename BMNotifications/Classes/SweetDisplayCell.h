@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SweetDisplayCell.h
 //  MLNotifications
 //
 //  Created by Brian Michel on 11/2/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SweetDisplayCell : UITableViewCell
 
 @end
