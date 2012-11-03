@@ -110,7 +110,8 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   
   if (!cell) {
     cell = [[classToUserForDisplay alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BMAppNotificationCellReuseId];
-    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissNotificationWithSwipe:)];
+    [cell addGestureRecognizer:swipe];
   }
   
   BMAppNotification *note = self.deliveredNotifications[indexPath.row];
@@ -136,6 +137,21 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   
   if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didActivateNotification:)]) {
     [self.delegate notificationCenter:self didActivateNotification:note];
+  }
+}
+
+#pragma mark - Swipe Gesture
+- (void)dismissNotificationWithSwipe:(UISwipeGestureRecognizer *)swipeGesture {
+  if (swipeGesture.state == UIGestureRecognizerStateEnded) {
+    NSIndexPath *indexPath = [self.notificationsController.tableView indexPathForRowAtPoint:swipeGesture.view.frame.origin];
+    if (indexPath) {
+      BMAppNotification *notification = self.deliveredNotifications[indexPath.row];
+      [self.deliveredNotifications removeObject:notification];
+      [self.notificationsController.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+      if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didDismissNotification:)]) {
+        [self.delegate notificationCenter:self didDismissNotification:notification];
+      }
+    }
   }
 }
 
@@ -208,6 +224,10 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
     self.userInfo = userInfo;
   }
   return self;
+}
+
+- (NSString *)description {
+  return [NSString stringWithFormat:@"<title: %@, subtitle: %@, image: %@, userInfo: %@>", self.title, self.subtitle, self.image, self.userInfo];
 }
 
 @end

@@ -16,7 +16,8 @@
 - (void)notificationCenter:(BMAppNotificationCenter *)center willActivateNotification:(BMAppNotification *)notification;
   //Called when the same touch is lifted from a given notification.
 - (void)notificationCenter:(BMAppNotificationCenter *)center didActivateNotification:(BMAppNotification *)notification;
-
+  //Called when the given notification is dismissed, but NOT activated
+- (void)notificationCenter:(BMAppNotificationCenter *)center didDismissNotification:(BMAppNotification *)notification;
 @end
 
 @interface BMAppNotificationCenter : NSObject

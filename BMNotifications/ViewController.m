@@ -46,4 +46,8 @@
   [alert show];
 }
 
+- (void)notificationCenter:(BMAppNotificationCenter *)center didDismissNotification:(BMAppNotification *)notification {
+  NSLog(@"Dismissed Notification: %@", notification);
+}
+
 @end
