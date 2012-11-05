@@ -20,7 +20,6 @@
 		72F55A401644183A00A13829 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A3E1644183A00A13829 /* ViewController_iPhone.xib */; };
 		72F55A431644183A00A13829 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A411644183A00A13829 /* ViewController_iPad.xib */; };
 		72F55A4B164419CE00A13829 /* BMAppNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F55A4A164419CE00A13829 /* BMAppNotificationCenter.m */; };
-		72F55A4D1644300D00A13829 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F55A4C1644300D00A13829 /* QuartzCore.framework */; };
 		72F55A511644330300A13829 /* blackCat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A501644330300A13829 /* blackCat.png */; };
 		72F55A541644353800A13829 /* ImageBubbleUntailed-Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A521644353800A13829 /* ImageBubbleUntailed-Blue.png */; };
 		72F55A551644353800A13829 /* ImageBubbleUntailed-Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F55A531644353800A13829 /* ImageBubbleUntailed-Blue@2x.png */; };
@@ -60,7 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F55A4D1644300D00A13829 /* QuartzCore.framework in Frameworks */,
 				72F55A241644183A00A13829 /* UIKit.framework in Frameworks */,
 				72F55A261644183A00A13829 /* Foundation.framework in Frameworks */,
 				72F55A281644183A00A13829 /* CoreGraphics.framework in Frameworks */,

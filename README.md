@@ -8,7 +8,7 @@ I know people say you shouldn't use other UIWindow objects in your iOS app, but 
 Requirements
 ------------
 
-1. The QuartzCore framework needs to be linked (may be going away).
+1. ARC
 
 Demo
 ----

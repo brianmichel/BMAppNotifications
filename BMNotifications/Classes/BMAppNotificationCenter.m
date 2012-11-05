@@ -6,13 +6,10 @@
 //  Copyright (c) 2012 Foureyes. All rights reserved.
 //
 
-#ifndef QUARTZCORE_H
-#warning "It looks like QuartzCore is not linked against, or is not in the precompiled header."
-#endif
-
 #import "BMAppNotificationCenter.h"
 
 const CGFloat BMAppNotificationTableWidth = 320.0;
+const CGFloat BMAppNotificationAlphaScaleFactor = 3.5;
 
 static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
 
@@ -26,7 +23,7 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
 
 @end
 
-@interface BMAppNotificationCenter () <UITableViewDataSource, UITableViewDelegate>
+@interface BMAppNotificationCenter () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (strong) NSArray *observers;
 @property (strong) BMAppNotificationWindow *notificationsWindow;
@@ -110,8 +107,10 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   
   if (!cell) {
     cell = [[classToUserForDisplay alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:BMAppNotificationCellReuseId];
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissNotificationWithSwipe:)];
-    [cell addGestureRecognizer:swipe];
+
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(cellDidPan:)];
+    panGesture.delegate = self;
+    [cell addGestureRecognizer:panGesture];
   }
   
   BMAppNotification *note = self.deliveredNotifications[indexPath.row];
@@ -140,19 +139,63 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   }
 }
 
-#pragma mark - Swipe Gesture
-- (void)dismissNotificationWithSwipe:(UISwipeGestureRecognizer *)swipeGesture {
-  if (swipeGesture.state == UIGestureRecognizerStateEnded) {
-    NSIndexPath *indexPath = [self.notificationsController.tableView indexPathForRowAtPoint:swipeGesture.view.frame.origin];
-    if (indexPath) {
-      BMAppNotification *notification = self.deliveredNotifications[indexPath.row];
-      [self.deliveredNotifications removeObject:notification];
-      [self.notificationsController.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
-      if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didDismissNotification:)]) {
-        [self.delegate notificationCenter:self didDismissNotification:notification];
-      }
-    }
+#pragma mark - Pan Gesture
+- (void)cellDidPan:(UIPanGestureRecognizer *)panGesture {
+  BOOL reset = NO;
+  BOOL complete = NO;
+
+  CGPoint translatedPoint = [panGesture translationInView:panGesture.view.superview];
+  CGPoint velocity = [panGesture velocityInView:panGesture.view.superview];
+
+  switch (panGesture.state) {
+    case UIGestureRecognizerStateBegan:
+      //Do nothing...
+      break;
+    case UIGestureRecognizerStateCancelled:
+    case UIGestureRecognizerStateEnded:
+    case UIGestureRecognizerStateFailed:
+      reset = velocity.x < 1000;
+      complete = !reset;
+      break;
+    default:
+      break;
   }
+
+  if ((panGesture.view.frame.origin.x + translatedPoint.x) < 0) {
+    panGesture.view.frame = CGRectMake(0, panGesture.view.frame.origin.y, panGesture.view.frame.size.width, panGesture.view.frame.size.height);
+    panGesture.view.alpha = 1.0;
+  } else {
+     panGesture.view.frame = CGRectMake(translatedPoint.x, panGesture.view.frame.origin.y, panGesture.view.frame.size.width, panGesture.view.frame.size.height);
+    panGesture.view.alpha = 1 -  (translatedPoint.x / (panGesture.view.frame.size.width * BMAppNotificationAlphaScaleFactor));
+  }
+
+  if (reset) {
+    [UIView animateWithDuration:0.3 animations:^{
+      panGesture.view.frame = CGRectMake(0, panGesture.view.frame.origin.y, panGesture.view.frame.size.width, panGesture.view.frame.size.height);
+      panGesture.view.alpha = 1.0;
+    }];
+  }
+
+  if (complete) {
+    [UIView animateWithDuration:0.3 animations:^{
+      panGesture.view.frame = CGRectMake(self.notificationsController.tableView.frame.size.width, panGesture.view.frame.origin.y, panGesture.view.frame.size.width, panGesture.view.frame.size.height);
+      panGesture.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+      NSIndexPath *indexPath = [self.notificationsController.tableView indexPathForRowAtPoint:CGPointMake(0, panGesture.view.frame.origin.y)];
+      if (indexPath) {
+        BMAppNotification *notification = self.deliveredNotifications[indexPath.row];
+        [self.deliveredNotifications removeObject:notification];
+        [self.notificationsController.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didDismissNotification:)]) {
+          [self.delegate notificationCenter:self didDismissNotification:notification];
+        }
+      }
+    }];
+  }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+  return YES;
 }
 
 - (void)dealloc {
