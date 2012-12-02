@@ -13,6 +13,12 @@ const CGFloat BMAppNotificationAlphaScaleFactor = 3.5;
 
 static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
 
+NSString * const kBMAppNotificationCenterWillActivateNotification = @"BMAppNotificationCenterWillActivateNotification";
+NSString * const kBMAppNotificationCenterDidActivateNotification = @"BMAppNotificationCenterDidActivateNotification";
+NSString * const kBMAppNotificationCenterDidDismissNotification = @"BMAppNotificationCenterDidDismissNotification";
+
+NSString * const kBMAppNotificationCenterNotificationKey = @"BMAppNotificationCenterNotificationKey";
+
 @interface BMAppNotificationWindow : UIWindow
 
 @end
@@ -125,6 +131,7 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:willActivateNotification:)]) {
     BMAppNotification *note = self.deliveredNotifications[indexPath.row];
     [self.delegate notificationCenter:self willActivateNotification:note];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kBMAppNotificationCenterWillActivateNotification object:self userInfo:@{kBMAppNotificationCenterNotificationKey : note}];
   }
   return YES;
 }
@@ -137,6 +144,7 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
   if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didActivateNotification:)]) {
     [self.delegate notificationCenter:self didActivateNotification:note];
   }
+  [[NSNotificationCenter defaultCenter] postNotificationName:kBMAppNotificationCenterDidActivateNotification object:self userInfo:@{kBMAppNotificationCenterNotificationKey : note}];
 }
 
 #pragma mark - Pan Gesture
@@ -189,6 +197,7 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
         if (self.delegate && [self.delegate respondsToSelector:@selector(notificationCenter:didDismissNotification:)]) {
           [self.delegate notificationCenter:self didDismissNotification:notification];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kBMAppNotificationCenterDidDismissNotification object:self userInfo:@{kBMAppNotificationCenterNotificationKey : notification}];
       }
     }];
   }
@@ -270,7 +279,7 @@ static NSString * BMAppNotificationCellReuseId = @"BMAppNotificationTableCell";
 }
 
 - (NSString *)description {
-  return [NSString stringWithFormat:@"<title: %@, subtitle: %@, image: %@, userInfo: %@>", self.title, self.subtitle, self.image, self.userInfo];
+  return [NSString stringWithFormat:@"<%@ title: %@, subtitle: %@, image: %@, userInfo: %@>", NSStringFromClass([self class]), self.title, self.subtitle, self.image, self.userInfo];
 }
 
 @end

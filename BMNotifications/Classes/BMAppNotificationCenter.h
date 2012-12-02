@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+OBJC_EXTERN NSString * const kBMAppNotificationCenterWillActivateNotification;
+OBJC_EXTERN NSString * const kBMAppNotificationCenterDidActivateNotification;
+OBJC_EXTERN NSString * const kBMAppNotificationCenterDidDismissNotification;
+
+OBJC_EXTERN NSString * const kBMAppNotificationCenterNotificationKey;
+
 @class BMAppNotificationCenter, BMAppNotification;
 @protocol BMAppNotificationCenterDelegate <NSObject>
 

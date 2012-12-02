@@ -19,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didActivate:) name:kBMAppNotificationCenterDidActivateNotification object:nil];
+
   [[BMAppNotificationCenter sharedCenter] registerClassForDisplay:[SweetDisplayCell class]];
   [BMAppNotificationCenter sharedCenter].delegate = self;
 }
@@ -38,6 +40,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Notification Callbacks
+- (void)didActivate:(NSNotification *)notification {
+  NSLog(@"%@", notification);
 }
 
 #pragma mark - Notification Delegate
